@@ -1,0 +1,36 @@
+.app-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fff;
+  color: #000;
+  overflow-y: hidden;
+}
+
+.app-intro .heading {
+  font-size: 36px;
+  text-align: center;
+  animation: heart-beat 4s infinite ease-in;
+  z-index: 1;
+}
+
+.app-intro .sub-heading {
+  font-size: 18px;
+  text-align: center;
+  color: #4b4b4b;
+  z-index: 1;
+}
+
+@keyframes heart-beat {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}

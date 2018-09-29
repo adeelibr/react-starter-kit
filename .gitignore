@@ -1,0 +1,25 @@
+# NPM packages folder.
+node_modules
+
+# Build files
+dist/
+
+# lock files
+yarn.lock
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# node-waf configuration
+.lock-wscript
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Jest Coverage
+coverage

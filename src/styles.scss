@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// include bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// my custom stylesheets
+@import "styles/modules/reset.scss";
+@import "styles/modules/base.scss";
