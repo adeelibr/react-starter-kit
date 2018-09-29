@@ -8,13 +8,12 @@ var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var Visualizer = require('webpack-visualizer-plugin');
 
 var baseConfig = require('./webpack.base.config');
-var nodeConfig = require('./webpack.node.config');
 
 const prodConfiguration = function (version, platform) {
   return merge([
     {
       optimization: {
-        // runtimeChunk: 'single',
+        runtimeChunk: 'single',
         splitChunks: {
           cacheGroups: {
             vendor: {
@@ -45,5 +44,5 @@ const prodConfiguration = function (version, platform) {
 }
 
 module.exports = function (env) {
-  return merge(baseConfig, nodeConfig, prodConfiguration(env.VERSION, env.PLATFORM));
+  return merge(baseConfig, prodConfiguration(env.VERSION, env.PLATFORM));
 }

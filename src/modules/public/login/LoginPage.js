@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import Snackbar from '@material-ui/core/Snackbar';
 
 // API
-import AuthenticationAPI from '../../../api/AuthenticationAPI';
 import { APP_TOKEN } from '../../../api/Constants';
 // Components
 import LoginForm from './components/LoginForm';
@@ -54,18 +53,17 @@ class LoginPage extends Component {
     if (isFormEmpty) {
       return;
     }
-    // username: adnansadiq , password: adnan =? For testing
     try {
       this.setState({ isLoading: true });
-      const result = await AuthenticationAPI.onLogin({
-        cancelToken: this.isTokenSource.token,
-        username: form.username,
-        password: form.password,
-      });
+      // const result = await AuthenticationAPI.onLogin({
+      //   cancelToken: this.isTokenSource.token,
+      //   username: form.username,
+      //   password: form.password,
+      // });
       this.setState({ isLoading: false });
       APP_TOKEN.set({
-        token: result.access_token,
-        refreshToken: result.refresh_token,
+        token: 'result.access_token',
+        refreshToken: 'result.refresh_token',
       });
       history.push('/auth');
     } catch (error) {

@@ -4,6 +4,7 @@ const merge = require("webpack-merge");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, '../src');
 
@@ -22,9 +23,7 @@ module.exports = merge([
         {
           test: /\.scss$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
+            { loader: MiniCssExtractPlugin.loader },
             "css-loader",
             "sass-loader"
           ]
@@ -37,6 +36,15 @@ module.exports = merge([
         template: './src/index.html',
         filename: './index.html'
       }),
+      new CopyWebpackPlugin([
+        { from: 'src/static' }
+      ]),
     ],
+    output: {
+      filename: '[name].bundle.js',
+      chunkFilename: '[name].chunk.bundle.js',
+      path: path.resolve(__dirname, '..', 'dist'),
+      publicPath: '/',
+    },
   },
 ]);

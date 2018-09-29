@@ -6,10 +6,10 @@
   "author": "Adeel Imran",
   "license": "MIT",
   "scripts": {
-    "prestart": "webpack-dev-server --mode development --config config/webpack.dev.config.js --open --hot --history-api-fallback",
+    "prestart": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback",
     "start": "npm run start:dev",
-    "buildnode": "webpack --mode production --config config/webpack.prod.config.js --env.VERSION=stag --env.PLATFORM=node --progress",
-    "buildjava": "webpack --mode production --config config/webpack.prod.config.js --env.VERSION=stag --env.PLATFORM=java --progress",
+    "prebuild": "webpack --mode production --config config/webpack.prod.config.js --env.VERSION=stag --env.PLATFORM=node --progress",
+    "build": "node server",
     "lint-web": "eslint --debug src/",
     "test": "jest",
     "test:watch": "jest --watch",
