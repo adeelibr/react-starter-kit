@@ -18,10 +18,7 @@ const Container = styled.section`
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  background-color: #37b44e;
-  background-image: url('/dist/images/background-login.svg');
-  background-repeat: no-repeat;
-  background-position: right bottom;
+  background-color: #f30;
 `;
 
 class LoginPage extends Component {

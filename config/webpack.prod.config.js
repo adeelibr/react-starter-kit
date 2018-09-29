@@ -8,7 +8,6 @@ var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var Visualizer = require('webpack-visualizer-plugin');
 
 var baseConfig = require('./webpack.base.config');
-var javaConfig = require('./webpack.java.config');
 var nodeConfig = require('./webpack.node.config');
 
 const prodConfiguration = function (version, platform) {
@@ -46,8 +45,5 @@ const prodConfiguration = function (version, platform) {
 }
 
 module.exports = function (env) {
-  if (env.PLATFORM === 'java') {
-    return merge(baseConfig, javaConfig, prodConfiguration(env.VERSION, env.PLATFORM));
-  } 
   return merge(baseConfig, nodeConfig, prodConfiguration(env.VERSION, env.PLATFORM));
 }

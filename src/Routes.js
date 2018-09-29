@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Helpers
-import { APP_TOKEN } from './api/Constants';
+// import { APP_TOKEN } from './api/Constants';
 import PageLoader from './modules/common/PageLoader';
 
 // Routes
@@ -29,16 +29,17 @@ const Routes = () => {
         exact
         path="/login"
         render={props => {
-          return APP_TOKEN.notEmpty ? <Redirect to="/auth" /> : <LoginPage {...props} />;
+          return <LoginPage {...props} />;
+          // return APP_TOKEN.notEmpty ? <Redirect to="/auth" /> : <LoginPage {...props} />;
         }}
       />
       <Route
         path="/auth"
         render={props => {
-          return APP_TOKEN.notEmpty ? <AuthLayout {...props} /> : <Redirect to="/login" />;
+          return <AuthLayout {...props} />;
+          // return APP_TOKEN.notEmpty ? <AuthLayout {...props} /> : <Redirect to="/login" />;
         }}
       />
-      <Route path="/auth" component={AuthLayout} />
       <Route component={NoMatchPage} />
     </Switch>
   );

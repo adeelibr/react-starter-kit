@@ -11,9 +11,6 @@ const styles = theme => ({
     textAlign: 'center',
     marginBottom: theme.margin * 2,
   },
-  img: {
-    marginBottom: theme.margin * 2,
-  },
 });
 
 const WelcomeMessage = ({ classes }) => {
@@ -22,7 +19,9 @@ const WelcomeMessage = ({ classes }) => {
       <Typography variant="display1" gutterBottom className={classes.heading}>
         Welcome To
       </Typography>
-      <img src="/dist/images/careem-bus.svg" alt="Careem Bus" className={classes.img} />
+      <Typography variant="display3" gutterBottom className={classes.heading}>
+        [LOGO HERE]
+      </Typography>
     </Fragment>
   );
 };

@@ -22,7 +22,7 @@ export default {
     }
   },
   onValidate: async ({ cancelToken, accessToken }) => {
-    const URL = `${c.API_CONSUMER}/colleague/auth/token/validate`;
+    const URL = `${c.API_CONSUMER}/something`;
     try {
       const { data } = await axios(URL, {
         method: 'GET',
@@ -37,7 +37,7 @@ export default {
     }
   },
   onRefresh: async ({ cancelToken, ...payload }) => {
-    const URL = `${c.API_CONSUMER}/colleague/auth/token/refresh`;
+    const URL = `${c.API_CONSUMER}/something`;
     try {
       const { data } = await axios(
         URL,

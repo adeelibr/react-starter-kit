@@ -1,16 +1,16 @@
 import * as actionTypes from './actionTypes';
-import BookingAPI from '../api/BookingAPI';
+import AuthenticationAPI from '../api/AuthenticationAPI';
 
-const onLoadBookingListSuccess = list => ({
-  type: actionTypes.GET_ALL_BOOKING_LIST,
+const onLoadSuccess = list => ({
+  type: actionTypes.DUMMY_1,
   list,
 });
 
 export function onLoadBookingList() {
   return async dispatch => {
     try {
-      const list = await BookingAPI.onGetBookingList();
-      dispatch(onLoadBookingListSuccess(list));
+      const list = await AuthenticationAPI.onGetBookingList();
+      dispatch(onLoadSuccess(list));
       return list;
     } catch (error) {
       return error;
@@ -21,8 +21,8 @@ export function onLoadBookingList() {
 export function deleteThisLaterDummyProcedure() {
   return async dispatch => {
     try {
-      const list = await BookingAPI.onGetBookingList();
-      dispatch(onLoadBookingListSuccess(list));
+      const list = await AuthenticationAPI.onGetBookingList();
+      dispatch(onLoadSuccess(list));
       return list;
     } catch (error) {
       return error;

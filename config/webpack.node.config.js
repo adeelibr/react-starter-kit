@@ -10,8 +10,7 @@ module.exports = merge([
     plugins: [
       new CopyWebpackPlugin([
         { 
-          from: 'src/static', 
-          to: './dist' 
+          from: 'src/static', to: '/' 
         }
       ]),
     ],

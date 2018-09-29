@@ -1,11 +1,11 @@
 /* eslint-disable */
-var path = require('path');
+const path = require('path');
 const merge = require("webpack-merge");
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var APP_DIR = path.resolve(__dirname, '../src');
+const APP_DIR = path.resolve(__dirname, '../src');
 
 module.exports = merge([
   {
@@ -21,15 +21,18 @@ module.exports = merge([
         },
         {
           test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: "css-loader!sass-loader",
-          })
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            "css-loader",
+            "sass-loader"
+          ]
         }
       ]
     },
     plugins: [
-      new ExtractTextPlugin('style.css'),
+      new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: './index.html'
