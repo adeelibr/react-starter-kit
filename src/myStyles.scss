@@ -1,0 +1,18 @@
+body {
+  background-color: skyblue;
+  color: black;
+  font-size: 20px;
+}
+
+.app {
+  width: 450px;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  & .app-header {
+    height: 250px;
+    width: inherit;
+    object-fit: cover;
+  }
+}
+

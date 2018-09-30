@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
-import './styles.scss';
-import App from './App';
+// import './styles.scss';
+// import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app'));
 
 /* eslint-disable no-console */
-/*
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -16,10 +16,14 @@ import './myStyles.scss';
 class App extends React.Component {
   state = {
     CaptainKirkBio: {},
+    Foo: null, // Foo is out component
   };
 
   componentDidMount() {
     this.onGetKirkBio();
+    import(/* webpackChunkName: 'Foo' */ './Foo').then(Foo => {
+      this.setState({ Foo: Foo.default });
+    });
   }
 
   onGetKirkBio = async () => {
@@ -43,7 +47,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { CaptainKirkBio } = this.state;
+    const { CaptainKirkBio, Foo } = this.state;
     return (
       <div className="app">
         <img alt="header" src="/dist/images/header.jpg" className="app-header" />
@@ -60,10 +64,10 @@ class App extends React.Component {
             <p style={{ wordBreak: 'break-all' }}>{JSON.stringify(CaptainKirkBio)}</p>
           )}
         </section>
+        {Foo ? <Foo /> : <p>Foo is loading</p>}
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-*/
