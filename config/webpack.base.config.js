@@ -13,7 +13,7 @@ module.exports = env => {
   const { PLATFORM, VERSION } = env;
   return merge([
       {
-        // entry: ['@babel/polyfill', APP_DIR],
+        entry: ['@babel/polyfill', APP_DIR],
         module: {
           rules: [
             {
