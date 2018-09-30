@@ -1,15 +1,14 @@
 /* eslint-disable */
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-
+const merge = require('webpack-merge');
 // Plugins
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-var Visualizer = require('webpack-visualizer-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
+// Configs
+const baseConfig = require('./webpack.base.config');
 
-var baseConfig = require('./webpack.base.config');
-
-const prodConfiguration = function (version, platform) {
+const prodConfiguration = env => {
   return merge([
     {
       optimization: {
@@ -23,19 +22,10 @@ const prodConfiguration = function (version, platform) {
         //     }
         //   }
         // },
-        minimizer: [
-          new UglifyJsPlugin({
-            uglifyOptions: {
-              mangle: {
-                keep_fnames: true,
-              },
-            },
-          })
-        ],
+        minimizer: [new UglifyJsPlugin()],
       },
       plugins: [
-        new webpack.DefinePlugin({ 'process.env.VERSION': JSON.stringify(version) }),
-        new webpack.DefinePlugin({ 'process.env.PLATFORM': JSON.stringify(platform) }),
+        new MiniCssExtractPlugin(),
         new OptimizeCssAssetsPlugin(),
         new Visualizer({ filename: './statistics.html' })
       ],
@@ -43,6 +33,6 @@ const prodConfiguration = function (version, platform) {
   ]);
 }
 
-module.exports = function (env) {
-  return merge(baseConfig, prodConfiguration(env.VERSION, env.PLATFORM));
+module.exports = env => {
+  return merge(baseConfig(env), prodConfiguration(env));
 }
