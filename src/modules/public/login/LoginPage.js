@@ -1,120 +1,122 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import styled from 'styled-components';
+// import PropTypes from 'prop-types';
+// import axios from 'axios';
+// import styled from 'styled-components';
 
-// Material UI
-import Snackbar from '@material-ui/core/Snackbar';
+export default () => <p>login page</p>;
 
-// API
-import { APP_TOKEN } from '../../../api/Constants';
-// Components
-import LoginForm from './components/LoginForm';
-import WelcomeMessage from './components/WelcomeMessage';
+// // Material UI
+// import Snackbar from '@material-ui/core/Snackbar';
 
-const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f30;
-`;
+// // API
+// import { APP_TOKEN } from '../../../api/Constants';
+// // Components
+// import LoginForm from './components/LoginForm';
+// import WelcomeMessage from './components/WelcomeMessage';
 
-class LoginPage extends Component {
-  isTokenSource = axios.CancelToken.source();
+// const Container = styled.section`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   height: 100vh;
+//   background-color: #f30;
+// `;
 
-  state = {
-    form: {
-      username: '',
-      password: '',
-    },
-    isLoading: false,
-    isSnackbarOpen: false,
-    snackbarMessage: '',
-  };
+// class LoginPage extends Component {
+//   isTokenSource = axios.CancelToken.source();
 
-  componentWillUnmount() {
-    this.isTokenSource.cancel('API Cancel');
-  }
+//   state = {
+//     form: {
+//       username: '',
+//       password: '',
+//     },
+//     isLoading: false,
+//     isSnackbarOpen: false,
+//     snackbarMessage: '',
+//   };
 
-  onHandleChangeForm = event => {
-    const { form } = this.state;
-    form[event.target.name] = event.target.value;
-    this.setState({ form });
-  };
+//   componentWillUnmount() {
+//     this.isTokenSource.cancel('API Cancel');
+//   }
 
-  onHandleSubmitForm = async event => {
-    event.preventDefault();
+//   onHandleChangeForm = event => {
+//     const { form } = this.state;
+//     form[event.target.name] = event.target.value;
+//     this.setState({ form });
+//   };
 
-    const { history } = this.props;
-    const { form } = this.state;
+//   onHandleSubmitForm = async event => {
+//     event.preventDefault();
 
-    const isFormEmpty = Object.values(form).every(item => item === '');
-    if (isFormEmpty) {
-      return;
-    }
-    try {
-      this.setState({ isLoading: true });
-      // const result = await AuthenticationAPI.onLogin({
-      //   cancelToken: this.isTokenSource.token,
-      //   username: form.username,
-      //   password: form.password,
-      // });
-      this.setState({ isLoading: false });
-      APP_TOKEN.set({
-        token: 'result.access_token',
-        refreshToken: 'result.refresh_token',
-      });
-      history.push('/auth');
-    } catch (error) {
-      if (axios.isCancel(error)) {
-        // console.log('Request canceled', error.message);
-      } else {
-        const { message, errorCode } = error.response.data;
-        if (errorCode === 'CMT-AUTH-3011') {
-          this.onToggleSnackbar({ message });
-        }
-        this.setState({ isLoading: false });
-      }
-    }
-  };
+//     const { history } = this.props;
+//     const { form } = this.state;
 
-  onToggleSnackbar = ({ message = 'Error' }) => {
-    this.setState(state => ({
-      isSnackbarOpen: !state.isSnackbarOpen,
-      snackbarMessage: message,
-    }));
-  };
+//     const isFormEmpty = Object.values(form).every(item => item === '');
+//     if (isFormEmpty) {
+//       return;
+//     }
+//     try {
+//       this.setState({ isLoading: true });
+//       // const result = await AuthenticationAPI.onLogin({
+//       //   cancelToken: this.isTokenSource.token,
+//       //   username: form.username,
+//       //   password: form.password,
+//       // });
+//       this.setState({ isLoading: false });
+//       APP_TOKEN.set({
+//         token: 'result.access_token',
+//         refreshToken: 'result.refresh_token',
+//       });
+//       history.push('/auth');
+//     } catch (error) {
+//       if (axios.isCancel(error)) {
+//         // console.log('Request canceled', error.message);
+//       } else {
+//         const { message, errorCode } = error.response.data;
+//         if (errorCode === 'CMT-AUTH-3011') {
+//           this.onToggleSnackbar({ message });
+//         }
+//         this.setState({ isLoading: false });
+//       }
+//     }
+//   };
 
-  render() {
-    const { form, isLoading, isSnackbarOpen, snackbarMessage } = this.state;
-    return (
-      <Container>
-        <WelcomeMessage />
-        <LoginForm
-          value={form}
-          isLoading={isLoading}
-          onChange={this.onHandleChangeForm}
-          onSubmit={this.onHandleSubmitForm}
-        />
+//   onToggleSnackbar = ({ message = 'Error' }) => {
+//     this.setState(state => ({
+//       isSnackbarOpen: !state.isSnackbarOpen,
+//       snackbarMessage: message,
+//     }));
+//   };
 
-        <Snackbar
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-          open={isSnackbarOpen}
-          autoHideDuration={6000}
-          onClose={this.onToggleSnackbar}
-          ContentProps={{
-            'aria-describedby': 'message-id',
-          }}
-          message={<span id="message-id">{snackbarMessage}</span>}
-        />
-      </Container>
-    );
-  }
-}
+//   render() {
+//     const { form, isLoading, isSnackbarOpen, snackbarMessage } = this.state;
+//     return (
+//       <Container>
+//         <WelcomeMessage />
+//         <LoginForm
+//           value={form}
+//           isLoading={isLoading}
+//           onChange={this.onHandleChangeForm}
+//           onSubmit={this.onHandleSubmitForm}
+//         />
 
-LoginPage.propTypes = {
-  history: PropTypes.object, // React Router Injected
-};
+//         <Snackbar
+//           anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+//           open={isSnackbarOpen}
+//           autoHideDuration={6000}
+//           onClose={this.onToggleSnackbar}
+//           ContentProps={{
+//             'aria-describedby': 'message-id',
+//           }}
+//           message={<span id="message-id">{snackbarMessage}</span>}
+//         />
+//       </Container>
+//     );
+//   }
+// }
 
-export default LoginPage;
+// LoginPage.propTypes = {
+//   history: PropTypes.object, // React Router Injected
+// };
+
+// export default LoginPage;

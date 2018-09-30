@@ -28,17 +28,19 @@ const Routes = () => {
       <Route
         exact
         path="/login"
-        render={props => {
-          return <LoginPage {...props} />;
-          // return APP_TOKEN.notEmpty ? <Redirect to="/auth" /> : <LoginPage {...props} />;
-        }}
+        component={LoginPage}
+        // render={props => {
+        //   return <LoginPage {...props} />;
+        //   // return APP_TOKEN.notEmpty ? <Redirect to="/auth" /> : <LoginPage {...props} />;
+        // }}
       />
       <Route
         path="/auth"
-        render={props => {
-          return <AuthLayout {...props} />;
-          // return APP_TOKEN.notEmpty ? <AuthLayout {...props} /> : <Redirect to="/login" />;
-        }}
+        component={AuthLayout}
+        // render={props => {
+        //   return <AuthLayout {...props} />;
+        //   // return APP_TOKEN.notEmpty ? <AuthLayout {...props} /> : <Redirect to="/login" />;
+        // }}
       />
       <Route component={NoMatchPage} />
     </Switch>
