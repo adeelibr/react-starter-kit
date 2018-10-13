@@ -1,17 +1,11 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-// import './styles.scss';
-// import App from './App';
-
-// ReactDOM.render(<App />, document.getElementById('app'));
-
-/* eslint-disable no-console */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import App from './App';
 
+// import './styles.scss';
 import './myStyles.scss';
+
+// ReactDOM.render(<App />, document.getElementById('app'));
 
 class App extends React.Component {
   state = {
@@ -42,7 +36,7 @@ class App extends React.Component {
       const character = resultJSON.characters[0];
       this.setState({ CaptainKirkBio: character });
     } catch (error) {
-      console.log('error', error);
+      // console.log('error', error);
     }
   };
 
