@@ -12,7 +12,8 @@
     "lint-web": "eslint --debug src/",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
     "@material-ui/core": "^3.0.0",
