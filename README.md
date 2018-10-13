@@ -4,7 +4,7 @@ Webapp Was Built In:
 
  * ReactJS
  * Redux
- * Webpack 4
+ * Webpack 4 
  * Babel 7
  * React Material UI
  * Bootstrap 4 
