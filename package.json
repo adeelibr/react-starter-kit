@@ -10,6 +10,7 @@
     "prebuild": "webpack --mode production --config config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stag --progress",
     "build": "node server",
     "lint": "eslint --debug src/",
+    "lint:write": "eslint --debug src/ --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
