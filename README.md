@@ -12,6 +12,7 @@ Webapp Was Built In:
  * Code Splitting
  * Code Formatter (Prettier)
  * Eslint configured extended with Airbnb style guide & support for prettier
+ * Jest & Enzyme Configured
 
 
 ### Tutorials
