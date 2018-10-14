@@ -14,7 +14,10 @@ export default {
     try {
       const { data } = await axios(
         URL,
-        Object.assign({}, PARAMS({ methodType: 'POST' }), { cancelToken, data: payload }),
+        Object.assign({}, PARAMS({ methodType: 'POST' }), {
+          cancelToken,
+          data: payload,
+        }),
       );
       return data;
     } catch (error) {
@@ -41,7 +44,10 @@ export default {
     try {
       const { data } = await axios(
         URL,
-        Object.assign({}, PARAMS({ methodType: 'POST' }), { cancelToken, data: payload }),
+        Object.assign({}, PARAMS({ methodType: 'POST' }), {
+          cancelToken,
+          data: payload,
+        }),
       );
       return data;
     } catch (error) {
