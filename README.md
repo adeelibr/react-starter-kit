@@ -18,6 +18,7 @@ Webapp Was Built In:
 
 Things I did while setting up the boiler plate for this code base, I wrote it all down in a series of articles
 
+* <del>https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745</del>
 * https://medium.freecodecamp.org/how-to-combine-webpack-4-and-babel-7-to-create-a-fantastic-react-app-845797e036ff
 
  How to start on PM2 [This is specific if you serve your files on a linux server where a NodeJS application is deployed as a server serving the .js files
