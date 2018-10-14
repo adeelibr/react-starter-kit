@@ -11,6 +11,7 @@ Webapp Was Built In:
  * HMR
  * Code Splitting
  * Code Formatter (Prettier)
+ * Eslint configured extended with Airbnb style guide & support for prettier
 
 
  How to start on PM2 [This is specific if you serve your files on a linux server where a NodeJS application is deployed as a server serving the .js files
