@@ -2,10 +2,6 @@
   "editor.tabSize": 2,
   "editor.rulers": [100],
   "editor.formatOnSave": false,
-  // Enable per-language
-  "[javascript]": {
-    "editor.formatOnSave": true
-  },
   "eslint.autoFixOnSave": true,
   "editor.showFoldingControls": "always",
   "editor.folding": true,
