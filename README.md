@@ -14,6 +14,7 @@ Webapp Was Built In:
  * Code Formatter (Prettier)
  * Eslint configured extended with Airbnb style guide & support for prettier
  * Jest & Enzyme Configured
+ * Automatically lint & format code, when committing it. [Husky/Lint-Staged]
 
 
 ### Tutorials
