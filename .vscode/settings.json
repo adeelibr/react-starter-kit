@@ -4,8 +4,9 @@
   "editor.formatOnSave": false,
   // Enable per-language
   "[javascript]": {
-      "editor.formatOnSave": true
+    "editor.formatOnSave": true
   },
+  "eslint.autoFixOnSave": true,
   "editor.showFoldingControls": "always",
   "editor.folding": true,
   "editor.foldingStrategy": "indentation", 
