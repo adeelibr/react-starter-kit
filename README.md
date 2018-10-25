@@ -23,6 +23,7 @@ Things I did while setting up the boiler plate for this code base, I wrote it al
 
 * <del>https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745</del>
 * https://medium.freecodecamp.org/how-to-combine-webpack-4-and-babel-7-to-create-a-fantastic-react-app-845797e036ff
+* https://medium.freecodecamp.org/these-tools-will-help-you-write-clean-code-da4b5401f68e
 
 
 ### Deploying a Node Instance On Linux Server Using PM2
