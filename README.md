@@ -10,7 +10,7 @@ Webapp Was Built In:
  * Bootstrap 4 
  * SCSS Support
  * HMR
- * Code Splitting
+ * Code Splitting with React.lazy & React.Suspense
  * Code Formatter (Prettier)
  * Eslint configured extended with Airbnb style guide & support for prettier
  * Jest & Enzyme Configured
