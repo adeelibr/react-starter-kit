@@ -11,6 +11,11 @@ const styles = theme => ({
     textAlign: 'center',
     marginBottom: theme.margin * 2,
   },
+  logo: {
+    width: 250,
+    heading: 250,
+    objectFit: 'cover',
+  },
 });
 
 const WelcomeMessage = ({ classes }) => {
@@ -19,9 +24,7 @@ const WelcomeMessage = ({ classes }) => {
       <Typography variant="display1" gutterBottom className={classes.heading}>
         Welcome To
       </Typography>
-      <Typography variant="display3" gutterBottom className={classes.heading}>
-        [LOGO HERE]
-      </Typography>
+      <img src="/images/logo.png" alt="app logo" className={classes.logo} />
     </Fragment>
   );
 };
