@@ -1,16 +1,11 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
-import Loadable from 'react-loadable';
 
-import PageLoader from '../../common/PageLoader';
 /* Auth Pages Starts Here */
-const UserPage = Loadable({
-  loader: () => import('../user/UserPage'),
-  loading: PageLoader,
-});
+const UserPage = lazy(() => import('../user/UserPage'));
 
 /* Auth Pages Ends Here */
 
