@@ -1,5 +1,7 @@
 # Documentation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adeelibr/react-starter-kit.svg)](https://greenkeeper.io/)
+
 Webapp Was Built In:
 
  * ReactJS
