@@ -1,12 +1,12 @@
 export default {
-  get 'production-stag-node'() {
-    return this['development-stag-node'];
-  },
-  'development-stag-node': {
+  'development-local-stag': {
     API_URL: '',
     AUTH_URL: '',
   },
-  get 'test-stag-node'() {
-    return this['development-stag-node'];
+  get 'production-local-stag'() {
+    return this['development-local-stag'];
+  },
+  get 'test-local-stag'() {
+    return this['development-local-stag'];
   },
 };

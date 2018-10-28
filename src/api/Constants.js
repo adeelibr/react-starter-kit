@@ -1,11 +1,11 @@
 import Config from './Config';
 
 const ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
+const PLATFORM = process.env.PLATFORM ? process.env.PLATFORM : 'local';
 const VERSION = process.env.VERSION ? process.env.VERSION : 'stag';
-const PLATFORM = process.env.PLATFORM ? process.env.PLATFORM : 'node';
 
-const KEY = `${ENV}-${VERSION}-${PLATFORM}`;
-// console.log(KEY);
+const KEY = `${ENV}-${PLATFORM}-${VERSION}`;
+// console.log('>>>>', KEY);
 export const API_URL = Config[KEY].API_URL;
 export const AUTH_URL = Config[KEY].AUTH_URL;
 
@@ -24,6 +24,8 @@ export const APP_TOKEN = {
     refreshToken: localStorage.getItem('refresh_token'),
   }),
   get notEmpty() {
-    return this.get().token !== null;
+    const cond1 = this.get().token !== null;
+    const cond2 = this.get().token !== '';
+    return cond1 && cond2;
   },
 };
