@@ -1,10 +1,20 @@
-/* eslint-disable global-require */
+/* eslint-disable no-underscore-dangle */
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-// Use DefinePlugin (Webpack) or loose-envify (Browserify)
-// together with Uglify to strip the dev branch in prod build.
-const env = process.env.NODE_ENV;
-if (env === 'production' || env === 'demo' || env === 'stag') {
-  module.exports = require('./store.prod');
-} else {
-  module.exports = require('./store.dev');
-}
+import rootReducer from '../reducers';
+
+const middlewares = [
+  applyMiddleware(thunk),
+  ...(process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION__
+    ? [window.__REDUX_DEVTOOLS_EXTENSION__()]
+    : []),
+];
+
+const enhancer = compose(...middlewares);
+
+const store = initialState => {
+  return createStore(rootReducer, initialState, enhancer);
+};
+
+export default store;
