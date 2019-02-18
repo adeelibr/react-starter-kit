@@ -8,7 +8,7 @@ Webapp Was Built In:
  * Babel 7
  * React Material UI
  * Bootstrap 4 
- * SCSS Support
+ * SCSS, CSS Support
  * HMR
  * Code Splitting with <b>React.lazy</b> & <b>React.Suspense</b>
  * Code Formatter (Prettier)
