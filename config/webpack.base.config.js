@@ -13,7 +13,7 @@ module.exports = env => {
   const { PLATFORM, VERSION } = env;
   return merge([
       {
-        entry: ['@babel/polyfill', APP_DIR],
+        entry: APP_DIR,
         module: {
           rules: [
             {
@@ -38,7 +38,7 @@ module.exports = env => {
             template: './src/index.html',
             filename: './index.html'
           }),
-          new webpack.DefinePlugin({ 
+          new webpack.DefinePlugin({
             'process.env.VERSION': JSON.stringify(env.VERSION),
             'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
           }),
